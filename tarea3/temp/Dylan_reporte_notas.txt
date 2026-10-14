@@ -1,0 +1,4 @@
+Reporte de Notas
+Aprobados: 2
+Reprobados: 4
+Promedio de Notas: 61.833333333333336
