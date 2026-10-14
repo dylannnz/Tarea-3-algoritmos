@@ -14,6 +14,7 @@ ArrayList<videojuego> catalogo = new ArrayList<>();
      */
     public Colecciones_dinamicas() {
         initComponents();
+        setTitle("Tarea 3 - Dylan");
     }
 
     /**

@@ -20,6 +20,7 @@ public class Analizador_Temperatura extends javax.swing.JFrame {
      */
     public Analizador_Temperatura() {
         initComponents();
+        setTitle("Tarea 3 - Dylan");
     }
 
     /**

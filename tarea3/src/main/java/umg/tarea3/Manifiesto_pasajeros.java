@@ -17,6 +17,7 @@ public class Manifiesto_pasajeros extends javax.swing.JFrame {
      */
     public Manifiesto_pasajeros() {
         initComponents();
+        setTitle("Tarea 3 - Dylan");
     }
 
     /**

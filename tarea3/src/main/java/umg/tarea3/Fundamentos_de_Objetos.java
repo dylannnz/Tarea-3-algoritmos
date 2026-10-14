@@ -13,6 +13,7 @@ public class Fundamentos_de_Objetos extends javax.swing.JFrame {
      */
     public Fundamentos_de_Objetos() {
         initComponents();
+        setTitle("Tarea 3 - Dylan");
     }
 
     /**
