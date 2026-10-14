@@ -129,13 +129,11 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
 
     double promedio = (double) suma / notas.length;
 
-    try {
-        FileWriter fw = new FileWriter("temp/Dylan_reporte_notas.txt");
+    try (FileWriter fw = new FileWriter("temp/Dylan_reporte_notas.txt")){
         fw.write("Reporte de Notas\n");
         fw.write("Aprobados: " + aprobados + "\n");
         fw.write("Reprobados: " + reprobados + "\n");
         fw.write("Promedio de Notas: " + promedio + "\n");
-        fw.close();
 
         JOptionPane.showMessageDialog(this, "Reporte generado en la carpeta temp.");
 
