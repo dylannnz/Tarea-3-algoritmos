@@ -2,16 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-//C:\Users\dygrz\OneDrive\Documents\NetBeansProjects\Tarea-3-algoritmos\temp
-//3190-26-6134
 package umg.tarea3;
-
-/**
- *
- * @author dygrz
- */
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 public class Sistema_de_Registro extends javax.swing.JFrame {
-    int[] notas = new int [6];
+    int[] notas = new int[6];
+    int indice = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Sistema_de_Registro.class.getName());
 
     /**
@@ -44,7 +42,7 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
         btnAgregar.setText("Agregar nota");
         btnAgregar.addActionListener(this::btnAgregarActionPerformed);
 
-        btnGenerar.setText("Agregar nota");
+        btnGenerar.setText("Generar Reporte");
         btnGenerar.addActionListener(this::btnGenerarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,7 +67,7 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -77,7 +75,7 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGenerar)
                     .addComponent(btnAgregar))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,11 +86,62 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNotaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+    if (indice >= 6) {
+        JOptionPane.showMessageDialog(this, "Ya ingresaste las 6 notas. Presiona Generar Reporte.");
+    }
+     // 2. Convertir el texto a número (puede fallar si escriben letras)
+    try {
+        int nota = Integer.parseInt(txtNota.getText().trim());
+
+        // 3. Validar rango
+        if (nota < 0 || nota > 100) {
+            JOptionPane.showMessageDialog(this, "La nota debe estar entre 0 y 100.");
+            return;
+        }
+        notas[indice] = nota;
+        indice++;
+        txtNota.setText("");
+        txtNota.requestFocus();
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Ingresá un número entero válido.");
+    }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        // TODO add your handling code here:
+    if (indice < 6) {
+        JOptionPane.showMessageDialog(this, "Faltan notas. Llevás " + indice + " de 6.");
+        return;
+    }
+
+    int aprobados = 0;
+    int reprobados = 0;
+    int suma = 0;
+
+    for (int i = 0; i < notas.length; i++) {
+        if (notas[i] >= 61) {
+            aprobados++;
+        } else {
+            reprobados++;
+        }
+        suma += notas[i];
+    }
+
+    double promedio = (double) suma / notas.length;
+
+    try {
+        FileWriter fw = new FileWriter("temp/Dylan_reporte_notas.txt");
+        fw.write("Reporte de Notas\n");
+        fw.write("Aprobados: " + aprobados + "\n");
+        fw.write("Reprobados: " + reprobados + "\n");
+        fw.write("Promedio de Notas: " + promedio + "\n");
+        fw.close();
+
+        JOptionPane.showMessageDialog(this, "Reporte generado en la carpeta temp.");
+
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(this, "Error al escribir el archivo: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
