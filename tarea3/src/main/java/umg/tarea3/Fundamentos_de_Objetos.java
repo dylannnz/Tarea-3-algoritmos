@@ -77,6 +77,7 @@ public class Fundamentos_de_Objetos extends javax.swing.JFrame {
 
         jLabel10.setText("Genero:");
 
+        taResultados.setEditable(false);
         taResultados.setColumns(20);
         taResultados.setRows(5);
         jScrollPane1.setViewportView(taResultados);
