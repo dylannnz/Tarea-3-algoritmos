@@ -1,6 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/**
+ * Tarea 3 - Algoritmos (Java / Swing)
+ * @author Dylan (dygrz), octubre 2026
  */
 package umg.tarea3;
 import java.io.File;
@@ -17,6 +17,7 @@ public class Sistema_de_Registro extends javax.swing.JFrame {
      */
     public Sistema_de_Registro() {
         initComponents();
+        setTitle("Tarea 3 - Dylan");
     }
 
     /**
