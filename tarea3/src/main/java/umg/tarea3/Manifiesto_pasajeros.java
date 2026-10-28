@@ -1,6 +1,6 @@
 /**
  * Tarea 3 - Algoritmos (Java / Swing)
- * @author Dylan (dygrz), octubre 2026
+ * @author Dylan (dylannnz), octubre 2026
  */
 package umg.tarea3;
     import java.io.File;

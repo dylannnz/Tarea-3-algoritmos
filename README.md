@@ -209,5 +209,5 @@ Formato del CSV: una línea por disco, `Título,Año`.
 
 ## ✍️ Autor
 
-**Dylan (`dygrz`)** · Tarea 3 de Algoritmos · Octubre 2026
+**Dylan (`dylannnz`)** · Tarea 3 de Algoritmos · Octubre 2026
 Cada ventana muestra "Tarea 3 - Dylan" en su barra de título y los archivos generados llevan el prefijo `Dylan_`.
